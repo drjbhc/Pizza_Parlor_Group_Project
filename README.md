@@ -98,7 +98,7 @@ Collect user information, *name*, *street address*, *city* and *zip*. This page 
 
 ### ORDER - CHECKOUT
 
-Users should not be able to modify item totals on this screen. When they click checkout, the user information, order total and array of pizzas should be sent to the server. After the checkout is complete, navigate the user back to the **select pizza** page.
+Users should not be able to modify item totals on this screen. When they click checkout, the user information, order total and array of pizzas should be sent to the server. After the checkout is complete, navigate the user back to the **select pizza** page AND clear out the reducers as appropriate. Each order should begin with "clean" order data (cart, address, etc).
 
 ![Select Pizza View](wireframes/screen-three.png)
 
