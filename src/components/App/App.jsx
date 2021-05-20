@@ -11,6 +11,10 @@ import {
   NavLink
 } from 'react-router-dom';
 
+import Checkout from '../Checkout/Checkout.jsx';
+import Customer from '../Customer/Customer.jsx';
+import PizzaList from '../PizzaList/PizzaList.jsx';
+
 function App() {
 
   return (
@@ -45,13 +49,13 @@ function App() {
             <p>admin</p>
           </Route>
           <Route path="/customer">
-            <p>customer</p>
+            <Customer />
           </Route>
           <Route path="/checkout">
-            <p>checkout</p>
+            <Checkout />
           </Route>
           <Route path="/">
-            <p>home</p>
+            <PizzaList />
           </Route>
         </Switch>
 
