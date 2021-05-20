@@ -15,6 +15,12 @@ const customerReducer = (state = [], action) => {
     return state;
 }
 const cartReducer = (state = [], action) => {
+    if (action.type === 'SET_CART_PIZZAS') return [action.payload];
+    if (action.type === 'SET_CUSTOMER_INFO') return [...state, action.payload];
+    if (action.type === 'CHECKED_OUT') {
+        let newState = [];
+        return newState;
+    }
     return state;
 }
 

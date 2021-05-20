@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
@@ -33,21 +33,28 @@ function PizzaList() {
 
     function addPizza() {
 
-
-        axios({
-            method: 'POST',
-            url: '/api/pizzas',
-            data: data
-        }).then(response => {
-            history.push('/customer');
-        }).catch(error => {
-            alert('Error, was unable to get pizza information');
-            console.log(error);
+        dispatch({
+            type: 'SET_CART_PIZZAS',
+            payload: data // update cartReducer
         })
+
+        history.push('/customer');
     }
 
+    const pizzas = useSelector(store => store.pizzaReducer);
+
     return (
-        <> </>
+        <>
+            {pizzas.map((pizza, i) => (
+                <div key={i}>
+                    <p>{pizza.name}</p>
+                    <div><img src={pizza.image_path} /></div>
+                    <p>{pizza.description}</p>
+                    <p>${pizza.price}</p>
+                    <button>Add to/Remove from Cart</button>{/* Button needs conditional rendering */}
+                </div>
+            ))}
+        </>
     )
 }
 

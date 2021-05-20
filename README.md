@@ -117,3 +117,14 @@ This page **should not** appear in the navigation bar. Eventually the client wou
 - Add pictures to the `public/images` folder and update the image url for each pizza in the database.
 - Add a button on the orders page to track delivery status.
 - Allow admins to click on an order and see all of the details for that order (which pizzas were a part of that particular order). For the details of the order with `id` of `1`, it will be available to anyone with the url [http://localhost:3000/order/1](http://localhost:3000/order/1). This route is not built on the server, so you will need to create it.
+
+
+### Notes from this morning
+//notes from this morning
+//Set pizzas
+//set orders
+//set customer info.
+
+//add and clear on orders - spread operator to add on back
+
+//customer info. saved with order

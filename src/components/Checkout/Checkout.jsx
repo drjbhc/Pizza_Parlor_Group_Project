@@ -8,29 +8,28 @@ function Checkout() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    function getOrder() {
+    const cart = useSelector(store => store.cartReducer);// Grabs info to display from cartReducer
+
+    function addPizza() {
+
         axios({
-            method: 'GET',
-            url: '/api/order'
+            method: 'POST',
+            url: '/api/order',
+            data: data // Send info to router/database
         }).then(response => {
-            console.log(response.data);
 
             dispatch({
-                type: 'SET_ORDER',
-                payload: response.data
-            })
+                type: 'CHECKED_OUT',
+            });
 
+            history.push('/');
         }).catch(error => {
-            console.log('error on GET', error);
-        });
+            alert('Error, was unable to go to checkout');
+            console.log(error);
+        })
     }
 
-    useEffect(() => {
-        console.log('in useEffect');
-        getOrder();
-    }, []);
 
-    // use the arr.length-1 when accessing which order needs to display
     return (
         <> </>
     )

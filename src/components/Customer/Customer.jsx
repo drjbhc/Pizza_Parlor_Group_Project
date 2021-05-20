@@ -1,28 +1,44 @@
-
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 
 function Customer() {
 
+    const dispatch = useDispatch();
     const history = useHistory();
 
-    function addPizza() {
+    // Grab information and push it to cartReducer
 
+    function nextButton() {
 
-        axios({
-            method: 'POST',
-            url: '/api/order',
-            data: data
-        }).then(response => {
-            history.push('/checkout');
-        }).catch(error => {
-            alert('Error, was unable to go to checkout');
-            console.log(error);
-        })
+        dispatch({
+            type: 'SET_CUSTOMER_INFO',
+            payload: data// update cartReducer
+        });
+
+        history.push('/checkout');
     }
 
     return (
-        <> </>
+        <>
+            <form onSubmit={(event) => nextButton(event)}>
+                <input
+                    type='text'
+                    placeholder='Name'
+                />
+                <input
+                    type='text'
+                    placeholder='Address'
+                />
+                <input
+                    type='text'
+                    placeholder='City'
+                />
+                <input
+                    type='text'
+                />
+            </form>
+        </>
     )
 }
 
