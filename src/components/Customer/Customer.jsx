@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
+import '../App/App.css';
 
 function Customer() {
     const [name, set_customer_name] = useState('');

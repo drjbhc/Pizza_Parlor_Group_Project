@@ -2,10 +2,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import '../App/App.css';
+
+import PizzaItem from '../PizzaItem/PizzaItem.jsx';
 
 
 function PizzaList() {
-    const [cartStatus, setCartStatus] = useState(false);
+
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -47,15 +50,8 @@ function PizzaList() {
     return (
         <>
             {pizzas.map((pizza, i) => (
-                <div key={i}>
-                    <p>{pizza.name}</p>
-                    <div><img src={pizza.image_path} /></div>
-                    <p>{pizza.description}</p>
-                    <p>${pizza.price}</p>
-                    <div onClick={(event) => (setCartStatus(!cartStatus))}>
-                        {cartStatus ? <button>Add to Cart</button> : <button>Remove from Cart</button>}
-                    </div> {/* Button needs conditional rendering */}
-                </div >
+                <PizzaItem pizza={pizza} i={i} />
+
             ))
             }
             <button>Next</button>
