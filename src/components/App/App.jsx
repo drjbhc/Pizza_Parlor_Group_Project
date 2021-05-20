@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import './App.css';
+// import './App.css';
 
 
 import {
@@ -13,23 +13,21 @@ import {
 
 function App() {
 
-
-
   return (
 
     <Router>
       <ul>
         <li>
-          <NavLink to="/"></NavLink>
+          <NavLink to="/admin">REMOVE WHEN DONE</NavLink>
         </li>
         <li>
-          <NavLink to="/"></NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/" exact></NavLink>
+          <NavLink to="/customer">Customer</NavLink>
         </li>
         <li>
-          <NavLink to="/" exact></NavLink>
+          <NavLink to="/checkout">Checkout</NavLink>
         </li>
       </ul>
 
@@ -40,6 +38,22 @@ function App() {
 
         <img src='images/pizza_photo.png' />
         <p>Pizza is great.</p>
+
+
+        <Switch>
+          <Route path="/admin">
+            <p>admin</p>
+          </Route>
+          <Route path="/customer">
+            <p>customer</p>
+          </Route>
+          <Route path="/checkout">
+            <p>checkout</p>
+          </Route>
+          <Route path="/">
+            <p>home</p>
+          </Route>
+        </Switch>
 
       </div>
     </Router >
