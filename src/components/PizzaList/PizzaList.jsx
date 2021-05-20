@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 
 function PizzaList() {
+    const [cartStatus, setCartStatus] = useState(false);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -51,9 +52,13 @@ function PizzaList() {
                     <div><img src={pizza.image_path} /></div>
                     <p>{pizza.description}</p>
                     <p>${pizza.price}</p>
-                    <button>Add to/Remove from Cart</button>{/* Button needs conditional rendering */}
-                </div>
-            ))}
+                    <div onClick={(event) => (setCartStatus(!cartStatus))}>
+                        {cartStatus ? <button>Add to Cart</button> : <button>Remove from Cart</button>}
+                    </div> {/* Button needs conditional rendering */}
+                </div >
+            ))
+            }
+            <button>Next</button>
         </>
     )
 }
