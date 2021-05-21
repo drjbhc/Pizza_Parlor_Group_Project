@@ -13,6 +13,7 @@ function PizzaList() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+
     function getPizzas() {
         axios({
             method: 'GET',
@@ -35,26 +36,20 @@ function PizzaList() {
         getPizzas();
     }, []);
 
-    function addPizza() {
-
-        dispatch({
-            type: 'SET_CART_PIZZAS',
-            payload: data // update cartReducer
-        })
-
+    function nextButton() {
         history.push('/customer');
     }
+
+    
 
     const pizzas = useSelector(store => store.pizzaReducer);
 
     return (
         <>
+            <p><button className="homenext-btn" onClick={(event) => nextButton()}>Next</button></p>
             {pizzas.map((pizza, i) => (
-                <PizzaItem pizza={pizza} i={i} />
-
-            ))
-            }
-            <button>Next</button>
+                <PizzaItem pizza={pizza} key={i}/>
+            ))}
         </>
     )
 }

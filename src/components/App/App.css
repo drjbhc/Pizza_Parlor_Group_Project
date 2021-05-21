@@ -110,3 +110,45 @@ text-shadow: 3px 3px black;
   line-height: 35px;
   list-style-type: none;
 }
+
+.pizza_form {
+  background-color: rgb(187, 14, 14);
+  text-shadow: 2px 2px black;
+  box-shadow: 5px 10px #888888;
+  border: solid black 3px;
+  width: 950px;
+  height: 110px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-align {
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.next-btn {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  background-color: green;
+  width: 75px;
+  height: 30px;
+  box-shadow: 1px 2px black;
+  padding: 5px;
+}
+
+.homenext-btn {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  background-color: green;
+  width: 100px;
+  height: 35px;
+  box-shadow: 1px 2px black;
+  padding: 5px;
+  margin-left: 928px;
+}
