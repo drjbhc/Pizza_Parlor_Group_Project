@@ -1,19 +1,112 @@
+body{
+  width: 1080px;
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
-  background-color: #222;
+  background-color: rgb(187, 14, 14);
   height: 70px;
-  padding: 20px;
+  padding: 10px;
+  width: 1025px;
+  box-shadow: 6px 7px #888888;
+  border: solid black 4px;
+}
+
+.App-title { font-style: italic;
+  font-weight: bold;
+  font-size: 40px; 
+  text-shadow: 3px 3px black; 
   color: white;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
-.App-title {
-  font-size: 2em;
+.pizza_image {
+width: 275px;
+border: solid black 3px;
+box-shadow: 2px 4px black;
 }
 
-.pizza_image{
-width: 15%;
+.pizza_desc {
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+  border: solid black 2px;
+  text-align: left;
+  width: 270px;
+  height: 105px;
+  padding: 5px;
+  margin: auto;
+  box-shadow: 2px 4px black;
+}
+
+.pizzaItems {
+  background-color: rgb(187, 14, 14);
+  text-align: left;
+  border: solid black 3px;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  width: 300px;
+  height: auto;
+  margin: 10px;
+  box-shadow: 5px 10px #888888;
+  display: inline-block;
+}
+
+.pizza_name {
+  color: white;
+font-weight: bold;
+font-size: 22px;
+text-shadow: 3px 3px black;
+}
+
+.pizza_price {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  text-shadow: 3px 3px black;
+}
+
+.buy-btn {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  background-color: green;
+  width: 150px;
+  height: 40px;
+  box-shadow: 1px 2px black;
+  padding: 5px;
+}
+
+.remove-btn {
+  color: rgb(187, 14, 14);
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  background-color: white;
+  width: 150px;
+  height: 40px;
+  box-shadow: 1px 2px black;
+  padding: 5px;
+}
+
+.nav-btn {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: rgb(187, 14, 14);
+  width: 85px;
+  height: 30px;
+  box-shadow: 1px 2px black;
+  padding: 5px;
+}
+
+.nav-list {
+  line-height: 35px;
+  list-style-type: none;
 }

@@ -18,28 +18,29 @@ import PizzaList from '../PizzaList/PizzaList.jsx';
 function App() {
 
   return (
+    <>
+<header className='App-header'>
+          <h1 className='App-title'>Prime Pizza</h1>
+        </header>
 
     <Router>
+    <div className="nav-list">
       <ul>
         <li>
           <NavLink to="/admin">REMOVE WHEN DONE</NavLink>
         </li>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/"><button className="nav-btn">Home</button></NavLink>
         </li>
         <li>
-          <NavLink to="/customer">Customer</NavLink>
+          <NavLink to="/customer"><button className="nav-btn">Customer</button></NavLink>
         </li>
         <li>
-          <NavLink to="/checkout">Checkout</NavLink>
+          <NavLink to="/checkout"><button className="nav-btn">Checkout</button></NavLink>
         </li>
       </ul>
-
-      <div className='App'>
-        <header className='App-header'>
-          <h1 className='App-title'>Prime Pizza</h1>
-        </header>
-
+    </div>
+        
 
         <Switch>
           <Route path="/admin">
@@ -55,9 +56,8 @@ function App() {
             <PizzaList />
           </Route>
         </Switch>
-
-      </div>
     </Router >
+    </>
   );
 }
 
