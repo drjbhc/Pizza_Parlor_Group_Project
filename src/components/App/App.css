@@ -171,6 +171,7 @@ text-shadow: 3px 3px black;
   margin: 10px;
   box-shadow: 5px 10px #888888;
   display: inline-block;
+  text-transform: capitalize;
 }
 
 .admin_head{
@@ -196,6 +197,7 @@ text-shadow: 3px 3px black;
   width: 300px;
   margin-left: 20px;
   margin-bottom: 10px;
+  text-transform: capitalize;
 }
 
 .checkout-btn {

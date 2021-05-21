@@ -3,16 +3,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import '../App/App.css';
-// import TotalReducer from '../TotalReducer/TotalReducer.jsx';
 
 function Checkout(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const cart = useSelector((store) => store.cartReducer); // Grabs info to display from cartReducer
+  const cart = useSelector((store) => store.cartReducer); 
   const customer = useSelector((store) => store.customerReducer);
+  
+    const calculateOrderCost = cartList => {
+      const totalPrice = (sum, item) => sum + Number(item.price);
+      const priceTotal = cartList.reduce(totalPrice, 0); // Bad naming convention, to fix when working
+      return priceTotal;
+    }
 
-  const [total, setTotal] = useState(0);
+    let total = calculateOrderCost(cart);
 
   function submitOrder() {
 
@@ -31,14 +36,14 @@ function Checkout(props) {
       zip: customer.zip,
       type: customer.delivery,
       total: total,
-      time: date + time, // Not currently being used
+      time: date + time, // Not currently being used, uses the TIMESTAMP DEFAULT in Postico
       pizzas: cart
     };
 
     axios({
       method: 'POST',
       url: '/api/order',
-      data: order, // Send info to router/database
+      data: order,
     })
       .then((response) => {
         dispatch({
@@ -55,8 +60,6 @@ function Checkout(props) {
 
   return (
     <>
-      {/* {JSON.stringify(cart)}
-        {JSON.stringify(customer)} */}
 
       <div className='checkout_table'>
         <p className='checkout_line'>{customer.name}</p>
@@ -83,7 +86,7 @@ function Checkout(props) {
             <tr>
               <td></td>
               <td>
-                {/* Total: $<TotalReducer setTotal={setTotal}/> */}
+                Total: ${total}
               </td>
             </tr>
           </tbody>
