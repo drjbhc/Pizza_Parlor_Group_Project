@@ -3,31 +3,36 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import '../App/App.css';
+// import TotalReducer from '../TotalReducer/TotalReducer.jsx';
 
-function Checkout() {
+function Checkout(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const cart = useSelector((store) => store.cartReducer); // Grabs info to display from cartReducer
   const customer = useSelector((store) => store.customerReducer);
 
-  function submitOrder() {
-    let currentDate = new Date();
-    let cDay = currentDate.getDate();
-    let cMonth = currentDate.getMonth() + 1;
-    let cYear = currentDate.getFullYear();
+  const [total, setTotal] = useState(0);
 
-    let date = `${cMonth}/${cDay}/${cYear}`;
-    let time = currentDate.getHours() + ':' + currentDate.getMinutes();
-    // The above code was borrowed from this helful resource:
+  function submitOrder() {
+
+    // Alternate way to get Date and Time, not currently being used though.
+    let currentDate = new Date();
+
+    let date = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()} `;
+    let time = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
+    // Resource used to help create above code:
     // https://www.w3docs.com/snippets/javascript/how-to-get-the-current-date-and-time-in-javascript.html
 
     let order = {
-      name: customer.name,
-      day_placed: date,
-      time_placed: time,
+      customer_name: customer.name,
+      street_address: customer.address,
+      city: customer.city,
+      zip: customer.zip,
       type: customer.delivery,
-      total_price: 0, // Need total to send to router
+      total: total,
+      time: date + time, // Not currently being used
+      pizzas: cart
     };
 
     axios({
@@ -53,35 +58,42 @@ function Checkout() {
       {/* {JSON.stringify(cart)}
         {JSON.stringify(customer)} */}
 
-      <div>
-        <p>{customer.name}</p>
-        <p>{customer.address}</p>
-        <p>
+      <div className='checkout_table'>
+        <p className='checkout_line'>{customer.name}</p>
+        <p className='checkout_line'>{customer.address}</p>
+        <p className='checkout_line'>
           {customer.city} {customer.zip}
         </p>
-        <p>{customer.delivery}</p>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.map((pizza, i) => (
-            <tr key={i}>
-              <td>{pizza.name}</td>
-              <td>${pizza.price}</td>
+        <p className='checkout_line'>{customer.delivery}</p>
+
+        <table className='checkout_line'>
+          <thead>
+            <tr>
+              <th className='checkout_line'>Name</th>
+              <th className='checkout_line'>Cost</th>
             </tr>
-          ))}
-          <tr>
-            <td></td>
-            <td>Total: $</td>
-          </tr>
-        </tbody>
-      </table>
-      <button onClick={(event) => submitOrder()}>Checkout</button>
+          </thead>
+          <tbody>
+            {cart.map((pizza, i) => (
+              <tr key={i}>
+                <td className='checkout_line'>{pizza.name}</td>
+                <td className='checkout_line'>${pizza.price}</td>
+              </tr>
+            ))}
+            <tr>
+              <td></td>
+              <td>
+                {/* Total: $<TotalReducer setTotal={setTotal}/> */}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <button className='checkout-btn' onClick={(event) => submitOrder()}>
+          Checkout
+        </button>
+        <br />
+      </div>
     </>
   );
 }

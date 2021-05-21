@@ -104,9 +104,14 @@ text-shadow: 3px 3px black;
   height: 30px;
   box-shadow: 1px 2px black;
   padding: 5px;
+  margin-left: 5px;
+  margin-bottom: 20px;
 }
 
 .nav-list {
+  margin-left: 20px;
+  margin-top: 20px;
+  padding-left: 20px;
   line-height: 35px;
   list-style-type: none;
 }
@@ -125,7 +130,7 @@ text-shadow: 3px 3px black;
 
 .form-align {
   margin-top: 5px;
-  margin-left: 15px;
+  margin-left: 25px;
 }
 
 .next-btn {
@@ -138,6 +143,7 @@ text-shadow: 3px 3px black;
   height: 30px;
   box-shadow: 1px 2px black;
   padding: 5px;
+  margin-left: 40px;
 }
 
 .homenext-btn {
@@ -151,4 +157,61 @@ text-shadow: 3px 3px black;
   box-shadow: 1px 2px black;
   padding: 5px;
   margin-left: 928px;
+}
+.admin_table {
+  color: black;
+  background-color: rgb(187, 14, 14);
+  text-align: left;
+  border: solid black 3px;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  width: 800px;
+  height: auto;
+  margin: 10px;
+  box-shadow: 5px 10px #888888;
+  display: inline-block;
+}
+
+.admin_head{
+  background-color: rgb(202, 199, 199);
+  width: 200px;
+  margin-left: 20px;
+}
+
+.admin_line{
+    background-color: white;
+  width: 200px;
+  margin-left: 20px;
+}
+
+.checkout_table {
+  background-color: rgb(187, 14, 14);
+  text-shadow: 2px 2px black;
+  box-shadow: 5px 10px #888888;
+  border: solid black 3px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  width: 300px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.checkout-btn {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  background-color: green;
+  width: 100px;
+  height: 30px;
+  box-shadow: 1px 2px black;
+  padding: 5px;
+  margin-left: 40px;
+  margin-bottom: 15px;
+}
+
+.checkout_line{
+  margin-left: 10px;
 }

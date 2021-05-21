@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import '../App/App.css';
 
-function Customer() {
+function Customer(props) {
   const [name, set_customer_name] = useState('');
   const [address, set_customer_address] = useState('');
   const [city, set_customer_city] = useState('');
@@ -12,6 +12,7 @@ function Customer() {
 
   const dispatch = useDispatch();
   const history = useHistory();
+
 
   function nextButton(event) {
     event.preventDefault();
